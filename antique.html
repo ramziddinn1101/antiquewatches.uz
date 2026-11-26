@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Antique Watches — Qadimiy Shveytsariya soatlari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="antique.css">
+</head>
+<body class="locked">
+
+<div class="gate" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="box">
+    <h2 id="mt">Kirish</h2>
+    <p style="color:var(--mute);margin:0">Saytdan foydalanish uchun elektron pochtangizni kiriting.</p>
+    <label for="email">Elektron pochta</label>
+    <div class="em"><input id="email" type="text" autocomplete="username" autocapitalize="none" spellcheck="false"><span>@gmail.com</span></div>
+    <div id="pwWrap" hidden>
+      <label for="pw">Parol</label>
+      <input id="pw" type="password" autocomplete="current-password">
+    </div>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn solid" id="go" style="margin-top:12px">Davom etish</button>
+  </div>
+</div>
+
+<div class="app">
+<header><div class="nav">
+  <a class="logo" href="#top">Antique Watches</a>
+  <nav><a href="#shop">Do‘kon</a><a href="#why">Nega biz</a><a href="#contact">Aloqa</a></nav>
+  <span class="who" id="who"></span>
+  <button class="btn sm" id="out">Chiqish</button>
+  <button class="btn" id="ordBtn" hidden>Buyurtmalar (<span id="ocnt">0</span>)</button>
+  <button class="btn" id="cartBtn" aria-label="Savat">Savat (<span id="cnt">0</span>)</button>
+</div></header>
+
+<div class="hero" id="top"><div class="hero-in">
+  <a class="btn solid" href="#shop">Soatlarni ko‘rish</a>
+</div></div>
+
+<section id="shop">
+  <div class="head"><h2>Soatlar</h2><div class="chips" id="chips"></div></div>
+
+  <div class="owner" id="owner" hidden>
+    <h3>Egasi paneli</h3>
+    <div class="f">
+      <div><label for="wn">Soat nomi</label><input id="wn"></div>
+      <div><label for="wl">Ishlab chiqarilgan joyi</label><input id="wl" placeholder="Masalan: Shveytsariya"></div>
+      <div><label for="wy">Yil</label><input id="wy" inputmode="numeric"></div>
+      <div><label for="wp">Narxi (so‘m)</label><input id="wp" inputmode="numeric"></div>
+      <div><label for="wf">Filtr</label><select id="wf"></select></div>
+      <div><label for="wm">Rasm va videolar</label><input id="wm" type="file" accept="image/*,video/*" multiple></div>
+    </div>
+    <div class="f2">
+      <button class="btn solid" id="addW">Soat qo‘shish</button>
+      <div style="min-width:220px"><label for="nf">Yangi filtr nomi</label><input id="nf"></div>
+      <button class="btn" id="addF">Filtr qo‘shish</button>
+    </div>
+    <div class="f2">
+      <div style="min-width:240px"><label for="pc">To‘lov kartasi raqami</label><input id="pc" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="23"></div>
+      <div style="min-width:220px"><label for="pn">Karta egasining ismi</label><input id="pn"></div>
+      <button class="btn solid" id="savePay">Kartani saqlash</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</section>
+
+<div class="trust" id="why"><div>
+  <article><h3>Qo‘lda tekshirilgan</h3><p>Har bir mexanizm e’lon qilinishidan oldin sinovdan o‘tkaziladi.</p></article>
+  <article><h3>Butun O‘zbekiston bo‘ylab yetkazib berish</h3><p>Buyurtmangizni O‘zbekistonning istalgan shahri va viloyatiga yetkazamiz.</p></article>
+  <article><h3>Keng tanlov</h3><p>Turli davr, uslub va narxdagi soatlar: o‘zingizga mosini tanlang.</p></article>
+</div></div>
+
+<footer id="contact">
+  <div class="soc">
+    <a href="https://t.me/antiquewatchesuz" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 3.5 2.8 10.7l5.3 1.9 2 6.2 3-3.9 4.7 3.5z"/><path d="m8.1 12.6 8.6-5.4-6.6 7.7"/></svg>AntiqueWatches.uz</a>
+    <a href="https://www.instagram.com/antiquewatches.uz" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="currentColor"/></svg>AntiqueWatches.uz</a>
+  </div>
+  © 2026 Antique Watches
+</footer>
+</div>
+
+<div class="ov" id="cartModal" hidden>
+ <div class="box" role="dialog" aria-modal="true" aria-labelledby="ct">
+  <h2 id="ct">Savat</h2>
+  <div id="cartList"></div>
+  <div id="done" hidden>
+    <p style="color:var(--brass)" id="doneTxt"></p>
+    <a class="btn solid" id="mailLink" href="#" style="display:inline-block">Egasiga email orqali yuborish</a>
+  </div>
+  <div id="orderForm">
+   <div class="tot"><span>Jami</span><span id="total"></span></div>
+   <p style="color:var(--mute);font-size:14px;margin:6px 0 0">Butun O‘zbekiston bo‘ylab yetkazib beramiz. Olib ketish yo‘q.</p>
+   <label for="reg">Viloyat yoki shahar (majburiy)</label>
+   <select id="reg"></select>
+   <label for="addr">Manzil: ko‘cha, uy, kvartira (majburiy)</label>
+   <input id="addr" autocomplete="street-address">
+   <label for="phone">Telefon raqami (majburiy)</label>
+   <input id="phone" type="tel" autocomplete="tel" placeholder="+998">
+   <div class="pay">
+     <b>To‘lov uchun karta</b>
+     <div class="cardno" id="cardNo"></div>
+     <div id="cardName"></div>
+     <div>O‘tkazma summasi: <span id="payAmt"></span></div>
+     <button class="btn sm" id="copyCard" type="button" style="justify-self:start">Karta raqamini nusxalash</button>
+   </div>
+   <label for="rc">To‘lov cheki, rasm (majburiy)</label>
+   <input id="rc" type="file" accept="image/*">
+   <p class="err" id="cartErr" role="alert"></p>
+   <button class="btn solid" id="order">Buyurtma berish</button>
+  </div>
+  <button class="btn" id="closeCart" style="margin-top:12px">Yopish</button>
+ </div>
+</div>
+
+<div class="ov" id="ordModal" hidden>
+ <div class="box" role="dialog" aria-modal="true" aria-labelledby="ot">
+  <h2 id="ot">Buyurtmalar</h2>
+  <div id="ordList"></div>
+  <button class="btn" id="closeOrd" style="margin-top:16px">Yopish</button>
+ </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="antique.js"></script>
+</body>
+</html>
